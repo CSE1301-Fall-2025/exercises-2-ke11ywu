@@ -27,8 +27,28 @@ public class E01Stats {
 		//Using scanner to read from a file
 		//Modify and add to the code below
 		//to complete the exercise
+		// maximum, minimum, average, and count
+		double currentNumber = 0;
+		double max = 0;
+		double min = 1000000000;
+		double sum = 0;
+		int count = 0;
+
 		while(in.hasNextDouble()) {
-			System.out.println(in.nextDouble());
+			currentNumber = in.nextDouble();
+			sum = sum + currentNumber;
+			if (currentNumber > max){
+				max = currentNumber;
+			}
+			if (currentNumber < min){
+				min = currentNumber;
+			}
+			count++;
 		}
+
+		System.out.println("max = " + max);
+		System.out.println("min = " + min);
+		System.out.println("average = " + (sum / count));
+		System.out.println("total double count = " + count);
 	}
 }
