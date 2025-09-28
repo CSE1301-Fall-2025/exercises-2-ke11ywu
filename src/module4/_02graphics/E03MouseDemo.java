@@ -17,7 +17,8 @@ public class E03MouseDemo {
 			double y = StdDraw.mouseY();
 
 			//Did user press the mouse button?
-			boolean isPressed = StdDraw.mousePressed();
+			// boolean isPressed = StdDraw.mousePressed(); = old line; .mousePressed is deprecated
+			boolean isPressed = StdDraw.isMousePressed();
 			
 			//Display information
 			System.out.println("X = " + x + ", and Y = " + y);
