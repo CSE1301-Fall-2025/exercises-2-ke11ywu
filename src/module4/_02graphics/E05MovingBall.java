@@ -24,6 +24,11 @@ public class E05MovingBall {
 		double playerSpeed = 0.025;
 
 		double distanceBetweenPoints = 0.0;
+
+		int points = 0;
+		long lastPointGiven = System.currentTimeMillis();
+		// technically an int, but the int is too big to be stored as an integer value
+		// long = an int but it can store bigger numbers
 		
 		StdDraw.setPenRadius(0.05);
 		
@@ -57,10 +62,32 @@ public class E05MovingBall {
 				playerX += playerSpeed;
 			}
 
+			if (playerX > 1 - 0.015){
+				playerX -= playerSpeed;
+			}
+			if (playerX < 0 + 0.015){
+				playerX += playerSpeed;
+			}
+			if (playerY > 1 - 0.015){
+				playerY -= playerSpeed;
+			}
+			if (playerY < 0 + 0.015){
+				playerY += playerSpeed;
+			}
+
 			distanceBetweenPoints = Math.sqrt(Math.pow(playerX - ballX, 2) + Math.pow(playerY - ballY, 2));
 			if (distanceBetweenPoints < StdDraw.getPenRadius() * 2){
-				StdDraw.text(0.5, 0.5, "collided");
+				points = 0;
+				playerX = 0.5;
+				playerY = 0.5;
 			}
+
+			if (System.currentTimeMillis() - lastPointGiven > 1000){ // one second elapsed
+				lastPointGiven = System.currentTimeMillis();
+				points++;
+			}
+
+			StdDraw.text(0.1, 0.02, "total points: " + points);
 			
 			//draw on canvas
 			StdDraw.setPenColor(Color.RED);
