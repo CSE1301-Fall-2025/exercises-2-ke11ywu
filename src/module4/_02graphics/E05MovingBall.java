@@ -12,6 +12,9 @@ public class E05MovingBall {
 	 * Exercise: Read and run the code below and make sure you
 	 * understand how it works before proceeding.
 	 */
+
+	// if you want multiple balls to dodge, use an array!
+
 	public static void main(String[] args) {
 		// starting values
 		double ballX = Math.random();
